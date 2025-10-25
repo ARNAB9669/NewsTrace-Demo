@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NewsTrace — Demo</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- vis-network for graph -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network@9.1.2/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>NewsTrace — Journalist Visualizer</h1>
+    <p class="muted">Enter a news outlet name and press <strong>Scrape</strong>.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <input id="outlet-input" placeholder="Type outlet name (e.g. The Hindu)" />
+      <button id="scrape-btn">Scrape</button>
+      <span id="status" class="muted">Idle</span>
+    </section>
+
+    <section class="visuals">
+      <div class="card">
+        <h2>Journalists</h2>
+        <div id="table-wrap">
+          <table id="authors-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Beat</th>
+                <th>Latest Article</th>
+                <th>Article Count</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="card half">
+          <h2>Top Beats</h2>
+          <canvas id="beatsChart"></canvas>
+        </div>
+
+        <div class="card half">
+          <h2>Journalist → Topic Network</h2>
+          <div id="network" style="height:360px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="muted small">
+      Demo built for quick prototype. Only public fields displayed.
+    </footer>
+  </main>
+
+  <script src="static/scriot.js"></script>
+</body>
+</html>
